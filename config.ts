@@ -4,12 +4,14 @@ export interface LoggerConfig {
   readonly format: string;
   readonly enableColors: boolean;
   readonly output: Deno.Writer;
+  readonly fmt: "json" | "text";
 }
 
 /// defaultConfig is the default configuration for the logger.
 export const defaultConfig: LoggerConfig = {
   enableColors: true,
-  format: "[${time}] ${status} - ${latency} ${method} ${path}\n",
+  format: "${time} | ${status} |\t ${ip} |\t${method} | ${path}\n",
   timeFormat: "HH:mm:ss",
   output: Deno.stdout,
+  fmt: "text",
 };
