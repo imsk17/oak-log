@@ -1,6 +1,6 @@
 // deno-lint-ignore-file require-await
 /** `version` managed by https://deno.land/x/land/publish. */
-export const VERSION = "0.2.0";
+export const VERSION = "0.3.0";
 
 /** `prepublish` will be invoked before publish, return `false` to prevent the publish. */
 //@ts-ignore: unused

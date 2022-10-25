@@ -1,6 +1,6 @@
 import { defaultConfig, LoggerConfig } from "./config.ts";
 import { Context, Middleware } from "oak";
-import { Data } from "./Data.ts";
+import { Data } from "./data.ts";
 import {
   bold,
   cyan,
