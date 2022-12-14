@@ -1,14 +1,9 @@
-import { defaultConfig, LoggerConfig } from "./config.ts";
+import { bold, cyan, green, red, yellow } from "colors";
+import { format } from "datetime";
 import { Context, Middleware } from "oak";
+
+import { defaultConfig, LoggerConfig } from "./config.ts";
 import { Data } from "./data.ts";
-import {
-  bold,
-  cyan,
-  green,
-  red,
-  yellow,
-} from "https://deno.land/std@0.152.0/fmt/colors.ts";
-import { format } from "https://deno.land/std@0.159.0/datetime/mod.ts";
 
 /// Creates a New Logger Middleware with the given config.
 export function New(config: Partial<LoggerConfig> | undefined): Middleware {
