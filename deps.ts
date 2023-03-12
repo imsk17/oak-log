@@ -8,7 +8,7 @@ export {
 export { format } from "https://deno.land/std@0.159.0/datetime/mod.ts";
 export {
   Application,
-  Router,
   Context,
+  Router,
 } from "https://deno.land/x/oak@v11.1.0/mod.ts";
 export type { Middleware } from "https://deno.land/x/oak@v11.1.0/mod.ts";

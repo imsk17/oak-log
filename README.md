@@ -13,7 +13,7 @@ import { Default as logger } from "https://deno.land/x/oak_log@v0.3.1/mod.ts";
 now, add the logger to your application:
 
 ```typescript
-app.use(logger())
+app.use(logger());
 ```
 
 and Tada! You have logging working now.

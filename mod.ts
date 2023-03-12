@@ -27,7 +27,7 @@ function createMw(config: LoggerConfig): Middleware {
 
 function extractData(
   { request, response }: Context,
-  { timeFormat }: LoggerConfig
+  { timeFormat }: LoggerConfig,
 ): Data {
   return {
     host: request.url.host,
@@ -42,7 +42,7 @@ function extractData(
 function formatToBuffer(
   data: Data,
   config: LoggerConfig,
-  te: TextEncoder
+  te: TextEncoder,
 ): Uint8Array {
   if (config.fmt === "json") {
     return te.encode(JSON.stringify(data));
@@ -53,7 +53,7 @@ function formatToBuffer(
 
 function formatToText(
   data: Data,
-  { enableColors, format }: LoggerConfig
+  { enableColors, format }: LoggerConfig,
 ): string {
   if (enableColors) {
     const method = bold(cyan(data.method));

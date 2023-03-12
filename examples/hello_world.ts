@@ -9,7 +9,7 @@ router.get("/", (context) => (context.response.body = "Hello, World!"));
 app.use(
   logger({
     format: "[${time} ${ip}] ${method} ${path} ${status}\n",
-  })
+  }),
 );
 
 app.use(router.routes());
