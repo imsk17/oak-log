@@ -1,6 +1,6 @@
-import { bold, cyan, green, red, yellow } from "colors";
-import { format } from "datetime";
-import { Context, Middleware } from "oak";
+import { bold, cyan, green, red, yellow } from "./deps.ts";
+import { format } from "./deps.ts";
+import { Context, Middleware } from "./deps.ts";
 
 import { defaultConfig, LoggerConfig } from "./config.ts";
 import { Data } from "./data.ts";
@@ -27,7 +27,7 @@ function createMw(config: LoggerConfig): Middleware {
 
 function extractData(
   { request, response }: Context,
-  { timeFormat }: LoggerConfig,
+  { timeFormat }: LoggerConfig
 ): Data {
   return {
     host: request.url.host,
@@ -42,7 +42,7 @@ function extractData(
 function formatToBuffer(
   data: Data,
   config: LoggerConfig,
-  te: TextEncoder,
+  te: TextEncoder
 ): Uint8Array {
   if (config.fmt === "json") {
     return te.encode(JSON.stringify(data));
@@ -53,7 +53,7 @@ function formatToBuffer(
 
 function formatToText(
   data: Data,
-  { enableColors, format }: LoggerConfig,
+  { enableColors, format }: LoggerConfig
 ): string {
   if (enableColors) {
     const method = bold(cyan(data.method));
@@ -65,20 +65,16 @@ function formatToText(
     return format
       .replace("${method}", method)
       .replace("${path}", path)
-      .replace(
-        "${time}",
-        time,
-      ).replace("${status}", status)
+      .replace("${time}", time)
+      .replace("${status}", status)
       .replace("${ip}", ip)
       .replace("${host}", host);
   } else {
     return format
       .replace("${method}", data.method)
       .replace("${path}", data.path)
-      .replace(
-        "${time}",
-        data.timestamp,
-      ).replace("${status}", data.status.toString())
+      .replace("${time}", data.timestamp)
+      .replace("${status}", data.status.toString())
       .replace("${ip}", data.ip)
       .replace("${host}", data.host);
   }
