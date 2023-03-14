@@ -1,11 +1,10 @@
-import { Application, Router } from "oak";
-
+import { Application, Router } from "../deps.ts";
 import { New as logger } from "../mod.ts";
 
 const app = new Application();
 const router = new Router();
 
-router.get("/", (context) => context.response.body = "Hello, World!");
+router.get("/", (context) => (context.response.body = "Hello, World!"));
 
 app.use(
   logger({
